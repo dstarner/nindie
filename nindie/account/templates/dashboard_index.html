@@ -1,0 +1,68 @@
+{% extends "dash_layout.html" %}
+
+{% block content %}
+    {% load static from staticfiles %}
+					<header class="special container" style="background-color: #000000; border-radius: 15px">
+						<span class="icon fa-laptop"></span>
+                        <h3 id="title">{{ song.title }}</h3>
+                    <div style="border-radius: 15px; padding: 1em; color: #56281d">
+                        <iframe id="frame" style="border-radius: 20%" height="400" width="40%" src="http://www.youtube.com/embed/{{ song.url }}?autoplay=1&controls=1" frameborder="0" allowfullscreen></iframe>
+                        <br>
+                        <a href="{% url 'streaming:new_song' %}"><button id="next" class="btn btn-lg"> >> NEXT SONG >> </button></a>
+					</div>
+                    </header>
+
+					<!-- One -->
+						<section class="wrapper style4 container">
+
+							<div class="row 150%">
+								<div class="4u 12u(narrower)">
+
+									<!-- Sidebar -->
+										<div class="sidebar">
+											<section>
+												<header>
+													<h3>Dashboard Menu</h3>
+												</header>
+												<footer>
+													<ul class="buttons">
+														<li><a href="{% url 'account:settings' %}" class="button small">Settings</a></li>
+													</ul>
+												</footer>
+											</section>
+										</div>
+
+								</div>
+								<div class="8u 12u(narrower) important(narrower)">
+
+									<!-- Content -->
+										<div class="content">
+											<section>
+											    <table class="table-responsive">
+                                                    <th class="alert-success alert-dismissable"><tr><td># Behind</td><td>Song</td><td>Artist</td></tr>
+                                                    </th>
+                                                    <tbody>
+                                                    {% for song in previous %}
+                                                    <tr>
+                                                        <td>{{ song.last_played }}</td>
+                                                        <td>{{ song.title }}</td>
+                                                        <td>{{ song.artist.name }}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+											</section>
+										</div>
+
+								</div>
+							</div>
+						</section>
+{% endblock %}
+
+
+
+
+
+
+
+

@@ -1,0 +1,150 @@
+{% extends "landing_layout.html" %}
+
+{% block content %}
+<!-- Banner -->
+    {% load static from staticfiles %}
+				<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+					<div class="inner">
+
+						<header>
+							<h2>Nindie</h2>
+						</header>
+						<p>Welcome to <strong>Nindie</strong>,
+						<br />
+						a music streaming site
+                        <br>
+                        based around what
+                        <br>
+                        you want.</p>
+						<footer>
+							<ul class="buttons vertical">
+								<li><a href="#main" class="button fit scrolly">Tell Me More</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon fa-music"></span>
+						<h2>Do you crave new music? Introducing <strong>Nindie</strong>!
+						<br />
+						Discover new artists that you'll enjoy.</h2>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style2 container special-alt">
+							<div class="row 50%">
+								<div class="8u 12u(narrower)">
+
+									<header>
+										<h2>Extend your <strong>iTunes</strong> Library to discover new music in new ways!</h2>
+									</header>
+								    <p>We take the artists you already listen to and find similar bands and their music, so you can experiment and grow your taste!</p>
+									<footer>
+										<ul class="buttons">
+											<li><a href="{% url 'account:step_1' %}" class="button">Sign Up Now!</a></li>
+										</ul>
+									</footer>
+
+								</div>
+								<div class="4u 12u(narrower) important(narrower)">
+
+									<ul class="featured-icons">
+										<li><span class="icon fa-volume-up"><span class="label"></span></span></li>
+										<li><span class="icon fa-laptop"><span class="label"></span></span></li>
+                                        <li>Image of iTunes Library</li>
+									</ul>
+
+								</div>
+							</div>
+						</section>
+
+					<!-- Three -->
+						<section class="wrapper style3 container special">
+
+							<header class="major">
+								<h2>Comes with all these <strong>Cool Features</strong></h2>
+							</header>
+
+							<div class="row">
+								<div class="6u 12u(narrower)">
+
+									<section>
+										<header>
+											<h3>Personalized Dashboard</h3>
+										</header>
+									    <p>A Dashboard with your music and artists is easily displayed for you to add, move and delete artists!</p>
+									</section>
+
+								</div>
+								<div class="6u 12u(narrower)">
+
+									<section>
+										<header>
+											<h3>Previous Songs Played</h3>
+										</header>
+									    <p>Don't you just hate when you're listening to the radio and you miss the name of a good song? We'll have the last 10 songs for you, just in case you are very forgetful!</p>
+									</section>
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u(narrower)">
+
+									<section>
+										<header>
+											<h3>Add/Delete Artists</h3>
+										</header>
+                                        <p>Control your music as you listen!</p>
+									</section>
+
+								</div>
+								<div class="6u 12u(narrower)">
+
+									<section>
+										<header>
+											<h3>Stream New Music</h3>
+										</header>
+									    <p>Blast new music to the point where your ears bleed (Please don't unless you like that), because we offer FREE streaming of music!</p>
+									</section>
+
+								</div>
+							</div>
+
+							<footer class="major">
+								<ul class="buttons">
+									<li><a href="#cta" class="button">See More</a></li>
+								</ul>
+							</footer>
+
+						</section>
+
+				</article>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<header>
+						<h2>Ready to try something <strong>cool</strong>?</h2>
+						<p>Sign up now! It's free!</p>
+					</header>
+					<footer>
+						<ul class="buttons">
+							<li><a href="{% url 'account:step_1' %}" class="button special">Try it Now</a></li>
+						</ul>
+					</footer>
+
+				</section>
+{% endblock %}

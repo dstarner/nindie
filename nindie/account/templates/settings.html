@@ -1,0 +1,51 @@
+{% extends "dash_layout.html" %}
+
+{% block content %}
+<header class="special container">
+						<span class="icon fa-mobile"></span>
+						<h2>Account <strong>Settings</strong></h2>
+						<p>Looking for a change in your life? You came to the right place!</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style4 container">
+
+							<!-- Content -->
+								<div class="content">
+									<section>
+										<header>
+											<h3>Re-Upload Library</h3>
+										</header>
+                                        <p>Added some new music to your library? Then reupload your library!</p>
+                                        <form action="{% url 'streaming:load_artists' quick_run=1 %}" enctype="multipart/form-data" method="post">
+                                            {% csrf_token %}
+                                            <input type="file" name="file">
+                                            <br/>
+                                            <button class="button small" type="submit">Update Library!</button>
+                                        </form>
+                                        <br/>
+									</section>
+                                    <section>
+                                        <header>
+                                            <h3>Add Artist</h3>
+                                        </header>
+                                        <p>Did we not find an artist that you love? Add them here!</p>
+                                        <form class="form-group-sm" enctype="multipart/form-data"  action="{% url 'streaming:add_artist' %}" method="post">
+                                            {% csrf_token %}
+                                            <input placeholder="Artist Name" class="form-control" style="max-width: 30em" type="text" name="artist" required>
+                                            <br>
+                                            <button class="button small" type="submit">Add Artist!</button>
+                                        </form>
+                                    </section>
+								</div>
+
+						</section>
+{% endblock %}
+
+
+
+
+
+
+
+

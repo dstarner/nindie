@@ -1,0 +1,37 @@
+{% extends "dash_layout.html" %}
+
+{% block content %}
+    <header class="special container">
+        <span class="icon fa-mobile"></span>
+        <h2>Account <strong>Sign Up</strong></h2>
+        <p>Thank you for trying us out! <br>
+            We won't disappoint!</p>
+    </header>
+    <!-- One -->
+    <section class="wrapper style4 container">
+        <!-- Content -->
+        <div class="content">
+            <section>
+                <header>
+                    <h3 class="col-lg-offset-2">User Info</h3>
+                    <form action="{% url 'account:create_user' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="col-lg-offset-1 col-lg-4 form-group">
+                            <label>First and Last Name separated by " "</label>
+                            <input type="text" name="name" class="form-control" style="max-width: 250px" placeholder="John Doe" required>
+                            <br>
+                            <label>Email Address</label>
+                            <input type="text" name="email" placeholder="john@gmail.com" class="form-control" style="max-width: 350px" required>
+                            <br><label>Password</label>
+                            <input type="text" name="password" class="form-control" style="max-width: 300px" placeholder="Password1" required>
+                            <br><label>Age</label>
+                            <input type="text" class="form-control" style="max-width: 6em" placeholder="18" maxlength="4" name="age" required>
+                            <button type="submit" class="pull-right btn btn-lg">Create Me!</button>
+                        </div>
+
+                    </form>
+                </header>
+            </section>
+        </div>
+    </section>
+{% endblock %}

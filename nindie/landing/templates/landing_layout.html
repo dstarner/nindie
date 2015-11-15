@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        {% load static from staticfiles %}
+		<title>Nindie</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body class="index">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1 id="logo"><a href="{% url 'landing:index' %}">Nindie <span>at UB Hacking</span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="{% url 'landing:index' %}">Welcome</a></li>
+							<li class="submenu">
+								<a href="#">Menu</a>
+								<ul>
+									<li><a href="#">About &amp; Terms</a></li>
+									<li><a href="contact.html">Contact</a></li>
+                                    {% if request.user.is_authenticated %}
+									<li class="submenu">
+										<a href="#">Account Menu</a>
+										<ul>
+											<li><a href="{% url 'account:index' %}">My Music</a></li>
+											<li><a href="{% url 'account:settings' %}">Settings</a></li>
+											<li><a href="{% url 'landing:logout' %}">Log Out</a></li>
+										</ul>
+									</li>
+                                    {% else %}
+                                    <li><a href="{% url 'landing:login' %}">Login</a></li>
+                                    <li><a href="{% url 'account:step_1' %}">Sign Up</a></li>
+                                    {% endif %}
+								</ul>
+							</li>
+                            {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'account:index' %}" class="button special">Dashboard</a></li>
+                            {% else %}
+							    <li><a href="{% url 'account:step_1' %}" class="button special">Sign Up</a></li>
+                            {% endif %}
+						</ul>
+					</nav>
+				</header>
+            {% block content %}
+            {% endblock %}
+        <!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+						<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+						<li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy;Nindie</li><li>Design: Daniel Starner</li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js'%}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollgress.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+
